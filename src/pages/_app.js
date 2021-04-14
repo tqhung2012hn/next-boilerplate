@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
+import { MuiThemeProvider, StylesProvider } from '@material-ui/core/styles';
 import { ThemeProvider } from 'styled-components';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 import { GlobalStyles, theme } from '@/styles/GlobalStyles';
 
@@ -14,10 +16,16 @@ function MyApp({ Component, pageProps }) {
     }, []);
 
     return (
-        <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <Component {...pageProps} />
-        </ThemeProvider>
+        <StylesProvider injectFirst>
+            <MuiThemeProvider theme={theme}>
+                <ThemeProvider theme={theme}>
+                    {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+                    <CssBaseline />
+                    <GlobalStyles />
+                    <Component {...pageProps} />
+                </ThemeProvider>
+            </MuiThemeProvider>
+        </StylesProvider>
     );
 }
 
