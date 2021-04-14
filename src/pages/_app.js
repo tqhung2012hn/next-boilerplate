@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { GlobalStyles, theme } from '@/styles/GlobalStyles';
-import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
     useEffect(() => {
