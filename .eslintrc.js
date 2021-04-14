@@ -15,6 +15,18 @@ module.exports = {
     settings: {
         react: {
             version: 'detect'
+        },
+        'import/resolver': {
+            alias: [
+                ['@/components', './src/components'],
+                ['@/constants', './src/constants'],
+                ['@/containers', './src/containers'],
+                ['@/contexts', './src/contexts'],
+                ['@/hocs', './src/hocs'],
+                ['@/layouts', './src/layouts'],
+                ['@/libs', './src/libs'],
+                ['@/styles', './src/styles']
+            ]
         }
     },
     extends: ['airbnb', 'airbnb/hooks', 'plugin:prettier/recommended'],
