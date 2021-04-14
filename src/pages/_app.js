@@ -4,6 +4,8 @@ import { MuiThemeProvider, StylesProvider } from '@material-ui/core/styles';
 import { ThemeProvider } from 'styled-components';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Head from 'next/head';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 
 import { GlobalStyles, theme } from '@/styles/GlobalStyles';
 
@@ -30,7 +32,9 @@ function MyApp({ Component, pageProps }) {
                         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
                         <CssBaseline />
                         <GlobalStyles />
-                        <Component {...pageProps} />
+                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                            <Component {...pageProps} />
+                        </MuiPickersUtilsProvider>
                     </ThemeProvider>
                 </MuiThemeProvider>
             </StylesProvider>
